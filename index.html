@@ -8,28 +8,38 @@
   <meta name="author" content="도시농부 팀">
   <title>도시농부</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .section-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
+  <!-- 네비게이션바 -->
   <nav style="background-color: #2c3e50; padding: 10px 0;">
     <div style="max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
       <a href="index.html" style="color: white; font-size: 1.2rem; text-decoration: none;">도시농부</a>
       <div>
-        <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">홈</a>
-        <a href="#about" style="color: white; margin: 0 15px; text-decoration: none;">소개</a>
-        <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">연락처</a>
+        <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">새로고침</a>
       </div>
     </div>
   </nav>
+
+  <!-- 본문 -->
   <div class="container">
     <h1>도시농부</h1>
     <h2>스마트 농업을 위한 데이터 기반 생육 관찰</h2>
+    
     <div class="category-grid">
       <div class="category-box">
-        도시농부 유투브 바로가기
+        <div class="section-title">도시농부 유투브 바로가기</div>
         <iframe src="https://www.youtube.com/embed/FVW-27H14F0?rel=0" allowfullscreen></iframe>
       </div>
+      
       <div class="category-box">
-        생육조사 방법
+        <div class="section-title">생육조사 방법</div>
         <div class="sub-buttons">
           <button onclick="showSubCategories('채소')" aria-label="채소 카테고리 보기">채소</button>
           <button onclick="showSubCategories('과일')" aria-label="과일 카테고리 보기">과일</button>
@@ -39,14 +49,16 @@
         <div id="subCategoryContainer" class="sub-sub-buttons"></div>
         <div id="videoContainer"></div>
       </div>
+
       <div class="category-box">
-        엑셀교육
+        <div class="section-title">엑셀교육</div>
         <iframe src="https://www.youtube.com/embed/QSsyP3gvvLs?rel=0" allowfullscreen></iframe>
       </div>
     </div>
+
     <div class="additional-grid">
       <div class="additional-box">
-        생육조사 어플
+        <div class="section-title">생육조사 어플</div>
         <div class="app-images">
           <div>
             <img src="assets/images/어플_1.png" alt="어플_1" onclick="playVideo('assets/videos/어플_1.mp4')">
@@ -58,9 +70,13 @@
           </div>
         </div>
       </div>
-      <div class="additional-box">빅데이터 통합프로그램</div>
+
       <div class="additional-box">
-        <h3>작목별 특징</h3>
+        <div class="section-title">빅데이터 통합프로그램</div>
+      </div>
+
+      <div class="additional-box">
+        <div class="section-title">작목별 특징</div>
         <div class="crop-buttons">
           <button onclick="openCropDetails('딸기')" aria-label="딸기 작물 정보 보기">딸기</button>
           <button onclick="openCropDetails('파프리카')" aria-label="파프리카 작물 정보 보기">파프리카</button>
@@ -68,7 +84,7 @@
           <button onclick="openCropDetails('방울토마토')" aria-label="방울토마토 작물 정보 보기">방울토마토</button>
           <button onclick="openCropDetails('토마토')" aria-label="토마토 작물 정보 보기">토마토</button>
           <button onclick="openCropDetails('오이')" aria-label="오이 작물 정보 보기">오이</button>
-          <button onclick="openCropDetails('배추')" aria-label="배추 작물 정보 보기">배추</창button>
+          <button onclick="openCropDetails('배추')" aria-label="배추 작물 정보 보기">배추</button>
           <button onclick="openCropDetails('사과')" aria-label="사과 작물 정보 보기">사과</button>
           <button onclick="openCropDetails('옥수수')" aria-label="옥수수 작물 정보 보기">옥수수</button>
           <button onclick="openCropDetails('벼')" aria-label="벼 작물 정보 보기">벼</button>
@@ -79,28 +95,21 @@
       </div>
     </div>
   </div>
+
+  <!-- 푸터 -->
   <footer style="background-color: #2c3e50; color: white; padding: 20px 0; text-align: center; margin-top: 20px;">
     <p>© 2025 도시농부. All rights reserved.</p>
-    <p>문의: <a href="mailto:yscomp14@gmail.com">yscomp14@gmail.com</a> | 전화: 010-5727-1582</p>
+    <p>문의: <a href="mailto:yscomp14@gmail.com" style="color: white;">yscomp14@gmail.com</a> | 전화: 010-5727-1582</p>
   </footer>
-  <section id="contact">
-    <h3>문의하기</h3>
-    <form action="mailto:contact@urbanfarmer.com" method="post" enctype="text/plain">
-      <label for="name">이름:</label><br>
-      <input type="text" id="name" name="name" required><br>
-      <label for="email">이메일:</label><br>
-      <input type="email" id="email" name="email" required><br>
-      <label for="message">메시지:</label><br>
-      <textarea id="message" name="message" rows="4" required></textarea><br>
-      <button type="submit" style="background-color: #2980b9; color: white; padding: 8px 16px; border: none; border-radius: 3px; cursor: pointer;">보내기</button>
-    </form>
-  </section>
+
+  <!-- 영상 오버레이 -->
   <div class="video-overlay" id="videoOverlay">
     <video id="appVideo" controls autoplay>
       <source src="" type="video/mp4">
     </video>
     <button onclick="closeVideo()">닫기</button>
   </div>
+
   <script src="assets/js/scripts.js"></script>
 </body>
 </html>
