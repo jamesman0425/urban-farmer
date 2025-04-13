@@ -77,28 +77,45 @@ h2 {
 .crop-buttons button {
     width: 100%;
     max-width: 150px;
-    padding: 0; /* 패딩 제거하여 이미지 크기 조정 */
-    font-size: 0; /* 텍스트 제거 */
-    background-color: transparent; /* 배경 투명 */
-    color: transparent; /* 텍스트 색상 투명 */
+    height: 120px;
+    padding: 0;
+    background-color: #f0f0f0;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     text-align: center;
-    overflow: hidden; /* 이미지 잘림 방지 */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .crop-buttons button img {
     width: 100%;
     height: auto;
+    max-height: 100%;
     display: block;
-    border-radius: 3px; /* 기존 버튼의 둥근 모서리 유지 */
-    transition: transform 0.2s; /* 호버 효과 부드럽게 */
+    border-radius: 3px;
+    transition: transform 0.2s;
 }
 .crop-buttons button:hover img {
-    transform: scale(1.1); /* 호버 시 이미지 약간 확대 */
+    transform: scale(1.1);
 }
 .crop-buttons button:hover {
-    background-color: transparent; /* 호버 시 배경색 변경 제거 */
+    background-color: #e0e0e0;
+}
+.crop-buttons button span {
+    display: none;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.crop-buttons button img[style*="display: none"] ~ span {
+    display: block;
 }
 iframe {
     margin-top: 10px;
@@ -165,7 +182,7 @@ iframe {
     display: inline-block;
 }
 .related-sites-dropdown {
-    display: none;
+    display: none !important;
     position: absolute;
     top: 100%;
     left: 0;
@@ -175,6 +192,9 @@ iframe {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     z-index: 1000;
     min-width: 200px;
+}
+.related-sites-dropdown.active {
+    display: block !important;
 }
 .related-sites-dropdown ul {
     list-style: none;
