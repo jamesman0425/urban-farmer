@@ -77,45 +77,18 @@ h2 {
 .crop-buttons button {
     width: 100%;
     max-width: 150px;
-    height: 120px;
-    padding: 0;
-    background-color: #f0f0f0;
+    padding: 10px;
+    background-color: #3498db;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     text-align: center;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.crop-buttons button img {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    display: block;
-    border-radius: 3px;
-    transition: transform 0.2s;
-}
-.crop-buttons button:hover img {
-    transform: scale(1.1);
-}
-.crop-buttons button:hover {
-    background-color: #e0e0e0;
-}
-.crop-buttons button span {
-    display: none;
-    color: #2c3e50;
+    color: white;
     font-size: 0.9rem;
     font-weight: bold;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
-.crop-buttons button img[style*="display: none"] ~ span {
-    display: block;
+.crop-buttons button:hover {
+    background-color: #2980b9;
 }
 iframe {
     margin-top: 10px;
@@ -169,49 +142,6 @@ iframe {
     padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
-}
-/* 드롭다운 메뉴 스타일 */
-.related-sites {
-    position: relative;
-}
-.related-sites-title {
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
-    padding: 10px;
-    display: inline-block;
-}
-.related-sites-dropdown {
-    display: none !important;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    border: 1px solid #3498db;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    z-index: 1000;
-    min-width: 200px;
-}
-.related-sites-dropdown.active {
-    display: block !important;
-}
-.related-sites-dropdown ul {
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-}
-.related-sites-dropdown li {
-    margin-bottom: 8px;
-}
-.related-sites-dropdown a {
-    font-size: 0.8rem;
-    color: #2980b9;
-    text-decoration: none;
-    display: block;
-}
-.related-sites-dropdown a:hover {
-    color: #1c5981;
 }
 @media screen and (max-width: 768px) {
     .additional-grid { grid-template-columns: 1fr; }

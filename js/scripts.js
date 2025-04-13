@@ -55,7 +55,6 @@ function closeVideo() {
 }
 
 function openCropDetails(crop) {
-    console.log(`Opening crop details for: ${crop}`); // 디버깅용
     const cropFiles = {
         '딸기': 'crop-details-딸기.html',
         '파프리카': 'crop-details-파프리카.html',
@@ -69,26 +68,7 @@ function openCropDetails(crop) {
         '벼': 'crop-details-벼.html',
         '보리': 'crop-details-보리.html',
         '콩': 'crop-details-콩.html',
-        '국화': 'crop-details-국화.html',
-        '규정': 'crop-details-규정.html'
+        '국화': 'crop-details-국화.html'
     };
     window.location.href = cropFiles[crop];
 }
-
-// 관련사이트 드롭다운 토글
-document.addEventListener("DOMContentLoaded", function() {
-    const title = document.querySelector(".related-sites-title");
-    const dropdown = document.getElementById("relatedSitesDropdown");
-
-    title.addEventListener("click", function(event) {
-        event.preventDefault();
-        dropdown.classList.toggle("active");
-    });
-
-    // 다른 곳 클릭 시 드롭다운 닫기
-    document.addEventListener("click", function(event) {
-        if (!title.contains(event.target) && !dropdown.contains(event.target)) {
-            dropdown.classList.remove("active");
-        }
-    });
-});
