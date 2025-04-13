@@ -17,29 +17,28 @@
   </style>
 </head>
 <body>
-  <!-- 사이드바 -->
-  <div class="sidebar">
-    <div class="section-title">관련 사이트</div>
-    <ul>
-      <li><a href="https://www.rda.go.kr/main/mainPage.do" target="_blank">농촌진흥청</a></li>
-      <li><a href="https://www.nongsaro.go.kr/portal/portalMain.ps?menuId=PS00001" target="_blank">농사로</a></li>
-      <li><a href="https://www.agrinet.co.kr/" target="_blank">한국농어민신문</a></li>
-      <li><a href="https://www.ares.gangwon.kr/gwares" target="_blank">강원농업기술원</a></li>
-      <li><a href="https://nongup.gg.go.kr/" target="_blank">경기농업기술원</a></li>
-      <li><a href="https://www.gba.go.kr/index.do" target="_blank">경북농업기술원</a></li>
-      <li><a href="https://www.gnares.go.kr:8444/Home/Main.mbz" target="_blank">경남농업기술원</a></li>
-      <li><a href="https://www.jares.go.kr/main" target="_blank">전남농업기술원</a></li>
-      <li><a href="https://www.jbares.go.kr/index.jbares" target="_blank">전북농업기술원</a></li>
-      <li><a href="https://cnnongup.chungnam.go.kr/main.cs" target="_blank">충남농업기술원</a></li>
-      <li><a href="https://ares.chungbuk.go.kr/home/main.php" target="_blank">충북농업기술원</a></li>
-      <li><a href="https://agri.jeju.go.kr/" target="_blank">제주농업기술원</a></li>
-    </ul>
-  </div>
-
   <!-- 네비게이션바 -->
-  <nav style="background-color: #2c3e50; padding: 10px 0;">
+  <nav style="background-color: #2c3e50; padding: 10px 0; position: relative;">
     <div style="max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" style="color: white; font-size: 1.2rem; text-decoration: none;">도시농부</a>
+      <div class="related-sites">
+        <a href="#" class="related-sites-title" onclick="toggleRelatedSites()">관련사이트</a>
+        <div class="related-sites-dropdown" id="relatedSitesDropdown">
+          <ul>
+            <li><a href="https://www.rda.go.kr/main/mainPage.do" target="_blank">농촌진흥청</a></li>
+            <li><a href="https://www.nongsaro.go.kr/portal/portalMain.ps?menuId=PS00001" target="_blank">농사로</a></li>
+            <li><a href="https://www.agrinet.co.kr/" target="_blank">한국농어민신문</a></li>
+            <li><a href="https://www.ares.gangwon.kr/gwares" target="_blank">강원농업기술원</a></li>
+            <li><a href="https://nongup.gg.go.kr/" target="_blank">경기농업기술원</a></li>
+            <li><a href="https://www.gba.go.kr/index.do" target="_blank">경북농업기술원</a></li>
+            <li><a href="https://www.gnares.go.kr:8444/Home/Main.mbz" target="_blank">경남농업기술원</a></li>
+            <li><a href="https://www.jares.go.kr/main" target="_blank">전남농업기술원</a></li>
+            <li><a href="https://www.jbares.go.kr/index.jbares" target="_blank">전북농업기술원</a></li>
+            <li><a href="https://cnnongup.chungnam.go.kr/main.cs" target="_blank">충남농업기술원</a></li>
+            <li><a href="https://ares.chungbuk.go.kr/home/main.php" target="_blank">충북농업기술원</a></li>
+            <li><a href="https://agri.jeju.go.kr/" target="_blank">제주농업기술원</a></li>
+          </ul>
+        </div>
+      </div>
       <div>
         <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">새로고침</a>
       </div>
@@ -103,19 +102,19 @@
       <div class="additional-box">
         <div class="section-title">작목별 특징</div>
         <div class="crop-buttons">
-          <button onclick="openCropDetails('딸기')" aria-label="딸기 작물 정보 보기">딸기</button>
-          <button onclick="openCropDetails('파프리카')" aria-label="파프리카 작물 정보 보기">파프리카</button>
-          <button onclick="openCropDetails('가지')" aria-label="가지 작물 정보 보기">가지</button>
-          <button onclick="openCropDetails('방울토마토')" aria-label="방울토마토 작물 정보 보기">방울토마토</button>
-          <button onclick="openCropDetails('토마토')" aria-label="토마토 작물 정보 보기">토마토</button>
-          <button onclick="openCropDetails('오이')" aria-label="오이 작물 정보 보기">오이</button>
-          <button onclick="openCropDetails('배추')" aria-label="배추 작물 정보 보기">배추</button>
-          <button onclick="openCropDetails('사과')" aria-label="사과 작물 정보 보기">사과</button>
-          <button onclick="openCropDetails('옥수수')" aria-label="옥수수 작물 정보 보기">옥수수</button>
-          <button onclick="openCropDetails('벼')" aria-label="벼 작물 정보 보기">벼</button>
-          <button onclick="openCropDetails('보리')" aria-label="보리 작물 정보 보기">보리</button>
-          <button onclick="openCropDetails('콩')" aria-label="콩 작물 정보 보기">콩</button>
-          <button onclick="openCropDetails('국화')" aria-label="국화 작물 정보 보기">국화</button>
+          <button onclick="openCropDetails('딸기')" aria-label="딸기 작물 정보 보기"><img src="assets/images/딸기.png" alt="딸기"></button>
+          <button onclick="openCropDetails('파프리카')" aria-label="파프리카 작물 정보 보기"><img src="assets/images/파프리카.png" alt="파프리카"></button>
+          <button onclick="openCropDetails('가지')" aria-label="가지 작물 정보 보기"><img src="assets/images/가지.png" alt="가지"></button>
+          <button onclick="openCropDetails('방울토마토')" aria-label="방울토마토 작물 정보 보기"><img src="assets/images/방울토마토.png" alt="방울토마토"></button>
+          <button onclick="openCropDetails('토마토')" aria-label="토마토 작물 정보 보기"><img src="assets/images/토마토.png" alt="토마토"></button>
+          <button onclick="openCropDetails('오이')" aria-label="오이 작물 정보 보기"><img src="assets/images/오이.png" alt="오이"></button>
+          <button onclick="openCropDetails('배추')" aria-label="배추 작물 정보 보기"><img src="assets/images/배추.png" alt="배추"></button>
+          <button onclick="openCropDetails('사과')" aria-label="사과 작물 정보 보기"><img src="assets/images/사과.png" alt="사과"></button>
+          <button onclick="openCropDetails('옥수수')" aria-label="옥수수 작물 정보 보기"><img src="assets/images/옥수수.png" alt="옥수수"></button>
+          <button onclick="openCropDetails('벼')" aria-label="벼 작물 정보 보기"><img src="assets/images/벼.png" alt="벼"></button>
+          <button onclick="openCropDetails('보리')" aria-label="보리 작물 정보 보기"><img src="assets/images/보리.png" alt="보리"></button>
+          <button onclick="openCropDetails('콩')" aria-label="콩 작물 정보 보기"><img src="assets/images/콩.png" alt="콩"></button>
+          <button onclick="openCropDetails('국화')" aria-label="국화 작물 정보 보기"><img src="assets/images/국화.png" alt="국화"></button>
         </div>
       </div>
     </div>
@@ -132,7 +131,7 @@
   <!-- 푸터 -->
   <footer style="background-color: #2c3e50; color: white; padding: 20px 0; text-align: center; margin-top: 20px;">
     <p>© 2025 도시농부. All rights reserved.</p>
-    <p>문의: <a href="/cdn-cgi/l/email-protection#ecc5cfdfd3d1cc8d88ec8b818d8580c28f8381" style="color: white;"><span class="__cf_email__" data-cfemail="b4ddd7c7cbc9d4989df4d3d9d5ddda9cd1dddf">[email&#160;protected]</span></a> | 전화: 010-5727-1582</p>
+    <p>문의: <a href="/cdn-cgi/l/email-protection#ecc5cfdfd3d1cc8d88ec8b818d8580c28f8381" style="color: white;"><span class="__cf_email__" data-cfemail="b4ddd7c7cbc9d4989df4d3d9d5ddda9cd1dddf">[email protected]</span></a> | 전화: 010-5727-1582</p>
   </footer>
 
   <!-- 영상 오버레이 -->
@@ -143,6 +142,22 @@
     <button onclick="closeVideo()">닫기</button>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/scripts.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92f737987c648236',t:'MTc0NDUwODAyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92f765732cee8232',t:'MTc0NDUwOTkwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  <script>
+    function toggleRelatedSites() {
+      const dropdown = document.getElementById("relatedSitesDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // 다른 곳 클릭 시 드롭다운 닫기
+    document.addEventListener("click", function(event) {
+      const dropdown = document.getElementById("relatedSitesDropdown");
+      const title = document.querySelector(".related-sites-title");
+      if (!title.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+  </script>
+</body>
 </html>
