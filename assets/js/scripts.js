@@ -179,7 +179,7 @@ function playYoutubeInline() {
               container.innerHTML = `
                 <img
                   id="youtubeThumbnail"
-                  src="assets/images/farmer.jpg"
+                  src="assets/images/farmer.JPG"
                   alt="도시농부 유투브 썸네일"
                   style="width: 100%; max-width: 500px; cursor: pointer;"
                   onclick="playYoutubeInline()"
