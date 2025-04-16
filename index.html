@@ -14,6 +14,22 @@
       font-size: 1.2em;
       margin-bottom: 10px;
     }
+    #overlayBlock {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 9999;
+      display: none;
+    }
+    #overlayBlock p {
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20%;
+    }
   </style>
 </head>
 <body>
@@ -32,13 +48,22 @@
     <h2>스마트 농업을 위한 데이터 기반 생육 관찰</h2>
     
     <div class="category-grid">
-      <div class="category-box">
+      <div class="category-box" id="youtubeSection">
         <div class="section-title">
-          도시농부 유투브 
+          도시농부 유투브
           <button onclick="window.open('https://www.youtube.com/@james_man66', '_blank')" style="margin-left: 10px;">바로가기</button>
         </div>
-        <iframe src="https://www.youtube.com/embed/FVW-27H14F0?rel=0" allowfullscreen></iframe>
+        <div id="youtubeContent">
+          <img
+            id="youtubeThumbnail"
+            src="assets/images/farmer.jpg"
+            alt="도시농부 유투브 썸네일"
+            style="width: 100%; max-width: 500px; cursor: pointer;"
+            onclick="playYoutubeInline()"
+          >
+        </div>
       </div>
+      
       
       <div class="category-box">
         <div class="section-title">생육조사 방법</div>
@@ -76,10 +101,21 @@
         </div>
       </div>
 
-      <div class="additional-box" onclick="alert('현재 개발중 입니다.')" style="cursor: pointer;">
+      <div class="additional-box" id="bigDataBox">
         <div class="section-title">농업 빅데이터 통합프로그램</div>
+        <div class="box-content" id="bigDataPlayerContainer">
+          <div class="video-wrapper" id="bigDataVideoWrapper">
+            <img
+              id="bigDataThumbnail"
+              src="assets/images/big_data.jpg"
+              alt="농업 빅데이터 썸네일"
+              style="width:100%; height:auto; cursor:pointer; display:block;"
+            >
+          </div>
+        </div>
       </div>
-  
+      
+ 
       <div class="additional-box">
         <div class="section-title">작목별 특징</div>
         <div class="crop-buttons">
@@ -100,7 +136,6 @@
       </div>
     </div>
 
-    <!-- 새로운 영상 섹션 -->
     <div class="news-grid">
       <div class="additional-box" style="min-height: 440px; width: 100%; padding: 0; margin: 0; text-align: center;">
         <div class="section-title">폭염 속 강원도 곳곳에서 돌발해충 기승</div>
@@ -123,8 +158,20 @@
     <button onclick="closeVideo()">닫기</button>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <!-- 페이지 차단용 오버레이 -->
+  <div id="overlayBlock"><p>영상이 종료되었습니다. 감사합니다.</p></div>
+
+  <script>
+    function playYoutubeAndBlock() {
+      const win = window.open("https://www.youtube.com/embed/Pp53oumSzqU?autoplay=1", "_blank");
+      if (win) {
+        // 비활성화 레이어 띄우기 (영상 종료 예상 시간 1분 12초 = 72000ms)
+        setTimeout(() => {
+          document.getElementById('overlayBlock').style.display = 'block';
+        }, 72000);
+      }
+    }
+  </script>
   <script src="assets/js/scripts.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92f9223b0f3ab032',t:'MTc0NDUyODEyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
