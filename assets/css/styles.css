@@ -149,3 +149,29 @@ iframe {
 @media screen and (max-width: 600px) {
     .category-grid { grid-template-columns: 1fr; }
 }
+
+/* 작목 이미지 버튼 스타일 */
+.styled-crops {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.crop-button {
+  width: 60px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 6px;
+  display: inline-block;
+  transform-origin: center center;
+}
+
+.crop-button:hover {
+  transform: scale(1.15) rotate(1deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  position: relative;
+}
