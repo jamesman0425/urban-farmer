@@ -1,9 +1,10 @@
 const subCategories = {
     "채소": { items: ["딸기", "파프리카", "가지", "방울토마토", "토마토", "오이", "배추"], class: "veg" },
-    "과일": { items: ["사과"], class: "fruit" },
+    "과일": { items: ["사과", "멜론"], class: "fruit" },  // 🍈 멜론 추가
     "곡류": { items: ["옥수수", "벼", "보리", "콩"], class: "grain" },
-    "기타": { items: ["국화"], class: "other" }
+    "기타": { items: ["국화", "양파"], class: "other" }  // 🧅 양파 추가
 };
+
 
 const cropVideos = {
     "딸기": "https://www.youtube.com/embed/045fYfFnzLA?rel=0",
@@ -18,7 +19,9 @@ const cropVideos = {
     "벼": "https://www.youtube.com/embed/QsppI3n-m5s?rel=0",
     "보리": "https://www.youtube.com/embed/fReirMs_Y30?rel=0",
     "콩": "https://www.youtube.com/embed/cyH9pzdgCOQ?rel=0",
-    "국화": "https://www.youtube.com/embed/73iQuIbOmhw?rel=0"
+    "국화": "https://www.youtube.com/embed/73iQuIbOmhw?rel=0",
+    "양파": "https://www.youtube.com/embed/FOvs8nI5NWs?rel=0",
+    "멜론": "https://www.youtube.com/embed/eJ-Ogdpr1po?rel=0"
 };
 
 function showSubCategories(mainCategory) {
@@ -68,7 +71,9 @@ function openCropDetails(crop) {
         '벼': 'crop-details-벼.html',
         '보리': 'crop-details-보리.html',
         '콩': 'crop-details-콩.html',
-        '국화': 'crop-details-국화.html'
+        '국화': 'crop-details-국화.html',
+        '양파': 'crop-details-양파.html', 
+        '멜론': 'crop-details-멜론.html'  
     };
     window.location.href = cropFiles[crop];
 }
