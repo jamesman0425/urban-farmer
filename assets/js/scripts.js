@@ -72,3 +72,123 @@ function openCropDetails(crop) {
     };
     window.location.href = cropFiles[crop];
 }
+// ------------------------
+// 농업 빅데이터 유튜브 플레이어 기능 추가
+// ------------------------
+
+(function () {
+    let bigDataPlayer;
+    const videoId = 'Pp53oumSzqU'; // 연결할 유튜브 영상 ID
+  
+    // 썸네일 클릭 이벤트 설정
+    function setupThumbnailClick() {
+      const thumb = document.getElementById('bigDataThumbnail');
+      if (thumb) {
+        thumb.addEventListener('click', () => {
+          const container = document.getElementById('bigDataPlayerContainer');
+          container.innerHTML = '<div id="bigDataPlayer"></div>';
+          initBigDataPlayer(); // 유튜브 플레이어 생성
+        });
+      }
+    }
+  
+    // 유튜브 API 로드
+    function loadYouTubeAPI() {
+      if (window.YT && typeof YT.Player === 'function') {
+        setupThumbnailClick();
+      } else {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(tag, firstScript);
+  
+        window.onYouTubeIframeAPIReady = setupThumbnailClick;
+      }
+    }
+  
+    // 플레이어 초기화
+    function initBigDataPlayer() {
+      bigDataPlayer = new YT.Player('bigDataPlayer', {
+        height: '315',
+        width: '100%',
+        videoId: videoId,
+        playerVars: {
+          rel: 0,
+          modestbranding: 1,
+          autoplay: 1 // 클릭하면 자동재생
+        },
+        events: {
+          'onStateChange': onBigDataPlayerStateChange
+        }
+      });
+    }
+  
+    // 영상 끝났을 때 다시 썸네일로 복귀
+    function onBigDataPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        const container = document.getElementById('bigDataPlayerContainer');
+        container.innerHTML = '<img id="bigDataThumbnail" src="assets/images/big_data.jpg" alt="농업 빅데이터 썸네일" style="width:100%; cursor:pointer;">';
+        setupThumbnailClick();
+      }
+    }
+  
+    // 시작 시 API 로드
+    document.addEventListener('DOMContentLoaded', loadYouTubeAPI);
+  })();
+// ------------------------
+// 도시농부 유투브 썸네일 클릭 → 영상 재생 & 종료 시 이미지 복귀
+// ------------------------
+function playYoutubeInline() {
+    const container = document.getElementById("youtubeContent");
+    if (!container) return;
+  
+    container.innerHTML = `
+      <iframe
+        id="youtubePlayer"
+        width="100%"
+        height="315"
+        src="https://www.youtube.com/embed/FVW-27H14F0?autoplay=1&rel=0&enablejsapi=1"
+        title="도시농부 유투브"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    `;
+  
+    loadYouTubeAPIForUrbanFarmer();
+  }
+  
+  function loadYouTubeAPIForUrbanFarmer() {
+    if (window.YT && typeof YT.Player === 'function') {
+      initUrbanFarmerPlayer();
+    } else {
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+      window.onYouTubeIframeAPIReady = initUrbanFarmerPlayer;
+    }
+  }
+  
+  function initUrbanFarmerPlayer() {
+    new YT.Player('youtubePlayer', {
+      events: {
+        'onStateChange': function (event) {
+          if (event.data === YT.PlayerState.ENDED) {
+            const container = document.getElementById("youtubeContent");
+            if (container) {
+              container.innerHTML = `
+                <img
+                  id="youtubeThumbnail"
+                  src="assets/images/farmer.jpg"
+                  alt="도시농부 유투브 썸네일"
+                  style="width: 100%; max-width: 500px; cursor: pointer;"
+                  onclick="playYoutubeInline()"
+                >
+              `;
+            }
+          }
+        }
+      }
+    });
+  }
+  
