@@ -130,7 +130,7 @@ function openCropDetails(crop) {
           const container = document.getElementById('bigDataPlayerContainer');
           container.innerHTML = `
               <div class="video-wrapper" id="bigDataVideoWrapper">
-                  <img id="bigDataThumbnail" src="assets/images/big_data.JPG" alt="농업 빅데이터 썸네일" style="width:100%; cursor:pointer;">
+                  <img id="bigDataThumbnail" src="assets/images/big_data.jpg" alt="농업 빅데이터 썸네일" style="width:100%; cursor:pointer;">
               </div>
           `;
           setupThumbnailClick(); // 클릭 이벤트 다시 설정
