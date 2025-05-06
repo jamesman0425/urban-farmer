@@ -8,7 +8,7 @@ const subCategories = {
 
 const cropVideos = {
     "딸기": "https://www.youtube.com/embed/045fYfFnzLA?rel=0",
-    "파프리카": "https://www.youtube.com/embed/LokZ02pfcWE?rel=0",
+    "파프리카": "https://www.youtube.com/embed/xfqYnUm3VAw?rel=0",
     "가지": "https://www.youtube.com/embed/SFeqHGqDJEU?rel=0",
     "방울토마토": "https://www.youtube.com/embed/BZQ1eLxE7UI?rel=0",
     "토마토": "https://www.youtube.com/embed/ok0BOVvwxVE?rel=0",
